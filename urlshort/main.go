@@ -1,7 +1,3 @@
-// URLShorter练习项目的目的是，实现一个http handler,可以处理http请求，
-// 当请求的path和指定的path匹配时，就跳转到特定的url；
-// path映射规则可以由map变量类型提供，也可以由yaml格式的字符串提供
-
 package main
 
 import (
