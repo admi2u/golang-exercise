@@ -88,8 +88,8 @@ func main() {
 	}
 
 	// 生成http handler处理器
-	handleFunc := storyHandler(story, tmpl)
+	handler := storyHandler(story, tmpl)
 
 	log.Println("starting http server on 8080...")
-	http.ListenAndServe(":8080", handleFunc)
+	http.ListenAndServe(":8080", handler)
 }
