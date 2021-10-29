@@ -26,10 +26,6 @@ var (
 	requestedUrls map[string]int // 已经请求的url
 )
 
-const (
-	XMLHeader = `<?xml version="1.0" encoding="UTF-8"?>` + "\n"
-)
-
 // 根据提供的domain，获取该域名下的所有页面的a标签的链接
 func getAllLinks(url string) map[string]int {
 	links := make(map[string]int)
@@ -101,5 +97,7 @@ func main() {
 		log.Fatalln("xml marshal error:", err)
 	}
 
-	fmt.Println(XMLHeader + string(output))
+	// 因为 MarshalIndent 函数输出的信息是不带XML头的，为了生成正确的xml文件，需要使用xml包预定义的Header变量
+	// 也可以自定义一个xml header字符串，和 output 拼接输出
+	fmt.Println(xml.Header + string(output))
 }
