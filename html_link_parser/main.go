@@ -24,9 +24,9 @@ func main() {
 	}
 	defer file.Close()
 
-	links := link.Parse()
+	links := link.Parse(file)
 	for _, link := range links {
-		fmt.Printf("link href = %s; text = %s\n", link.Href, link.Text)
+		fmt.Printf("link href = \"%s\"; text = \"%s\"\n", link.Href, link.Text)
 	}
 
 }
