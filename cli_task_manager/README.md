@@ -36,3 +36,4 @@ You have the following tasks:
 
 ## 其他
 1. 开发cli工具建议使用第三方包，如spf13/cobraa
+2. 数据存储使用boltdb/bolt数据库
