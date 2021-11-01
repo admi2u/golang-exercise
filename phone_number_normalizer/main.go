@@ -23,7 +23,7 @@ func main() {
 	// 这里也可以指定表名生成数据表
 	// 更改表明的其他方法参见：https://cloud.tencent.com/developer/article/1667752
 	db.Transaction(func(tx *gorm.DB) error {
-		tx.Table("phone_numbers").CreateTable(&PhoneNumber{})
+		tx.Table("phone_numbers").Migrator().CreateTable(&PhoneNumber{})
 
 		// 插入数据
 		phs := []PhoneNumber{
@@ -56,7 +56,7 @@ func main() {
 		tx.Where("1 = 1").Delete(&PhoneNumber{})
 
 		// 格式化处理数据
-		var mapPhoneNumbers map[string]int
+		var mapPhoneNumbers = make(map[string]int)
 		// 移除数字之外的字符
 		re, err := regexp.Compile(`[^\d]`)
 		if err != nil {
@@ -66,7 +66,6 @@ func main() {
 		// 将格式化后的字符串保存在map类型中去重
 		for _, n := range phones {
 			val := re.ReplaceAllString(n.Val, "")
-			fmt.Println(val)
 			mapPhoneNumbers[val]++
 		}
 
