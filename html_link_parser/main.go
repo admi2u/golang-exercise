@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"html_link_parser/link"
+	"golang-exercise/html_link_parser/link"
 	"log"
 	"os"
 )

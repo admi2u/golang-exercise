@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"golang-exercise/urlshort/handler"
 	"net/http"
-	"urlshort/handler"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {

@@ -4,9 +4,9 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"golang-exercise/sitemap_builder/link"
 	"log"
 	"net/http"
-	"sitemap_builder/link"
 	"strings"
 )
 
